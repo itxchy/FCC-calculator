@@ -23,6 +23,7 @@
         let re = /\./g;
 
         operatorLastPressed = false;
+        equalLastPressed = false;
         //console.log('clickHandlerNumbers fired! operatorLastPressed should be false: ', operatorLastPressed);
 
         // if the currently displayed number is zero, and not a dot, 
@@ -91,11 +92,6 @@
         numbersActiveTimes  = [],
         numbersActiveMinus  = [],
         numbersActivePlus   = [];
-  
-    // If another operator button is pressed immediately after
-    // the equal button is pressed, mathOperation() should not 
-    // fire in the operator button's function
-    let equalLastPressed = false;
 
     function clearNumbersActive() {
         numbersActiveDivide = [];
@@ -117,18 +113,34 @@
         plus    = document.getElementById("plus"),
         equal   = document.getElementById("equal");
 
-    // eqaul state variables    
+    // eqaul state variables  
+    let equalLastPressed = false;  
     let toCalculate = [];
     let previousOperator = null;
     let previousNumber = null;
     let currentNumber = null;
 
-    function operatorClickHandler(localActiveNumberArray, operator) {
+    function clearAllState() {
+        clearNumbersActive();
+        toCalculate = [];
+        previousOperator = null;
+        previousNumber = null;
+        currentNumber = null;
+        operatorLastPressed = false;
+        equalLastPressed = false;
+        displayedNumber = 0;
+    }
 
+    function operatorClickHandler(localActiveNumberArray, operator) {
+        //debugger;
         /* if a number was just pressed, 
         ==================================================================== */
 
         if (!equalLastPressed && !operatorLastPressed) {
+
+            if (operator === 'equal') {
+                localActiveNumberArray = [];
+            }
 
             // checks for active numbers *previously* pressed. If one is found,
             // the active number and the *currently* pressed number are calculated
@@ -154,6 +166,7 @@
             } else {
                 
                 if (calculated) {
+
                     updateActiveArray(localActiveNumberArray, previousOperator);
                 }
 
@@ -168,9 +181,13 @@
 
         if (equalLastPressed && operator === 'equal') {
             // debugger;
-            toCalculate = [currentNumber, previousNumber];
-            calculate(toCalculate, previousOperator);
-            currentNumber = displayedNumber;
+            if (previousNumber !== null) {
+                toCalculate = [currentNumber, previousNumber];
+                calculate(toCalculate, previousOperator);
+                currentNumber = displayedNumber;
+            }
+
+            
         } 
 
         /* if equal was last pressed, and another operator is pressed,
@@ -223,12 +240,15 @@
 
     clear.onclick = function () {
         operatorLastPressed = true;
-        clearNumbersActive();
-        if (displayedNumber !== 0) {
-            displayedNumber = 0;
-            updateDisplay();
-            return;
-        }
+        // clearNumbersActive();
+
+        // if (displayedNumber !== 0) {
+        //     displayedNumber = 0;
+        //     updateDisplay();
+        //     return;
+        // }
+
+        clearAllState();
         updateDisplay();
         return;
     };
