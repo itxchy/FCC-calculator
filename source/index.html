@@ -1,0 +1,66 @@
+<!doctype html>
+<html class="no-js" lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>FCC Calculator</title>
+        <meta name="description" content="A simple JavaScript calculator. Another Free Code Camp front end challenge by Matt Trifilo">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link 
+            href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" 
+            rel="stylesheet" 
+            integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" 
+            crossorigin="anonymous">        
+        <link rel="stylesheet" href="css/style.css">
+    </head>
+    <body>
+
+        <header>
+            <h1>JavaScript Calculator</h1>
+        </header>
+
+        <div class="container calculator">
+            <div id="display" class="display"></div>
+            <div class="button-container">
+                <div class="row">
+                    <div class="col-xs-12 number-buttons">
+                        <div class="col-xs-3">
+                            <button id="7" class="btn calc-btn">7</button>
+                            <button id="4" class="btn calc-btn">4</button>
+                            <button id="1" class="btn calc-btn">1</button>
+                            <button id="0" class="btn calc-btn">0</button>
+                        </div>
+                        <div class="col-xs-3">
+                            <button id="8" class="btn calc-btn">8</button>
+                            <button id="5" class="btn calc-btn">5</button>
+                            <button id="2" class="btn calc-btn">2</button>
+                            <button id="clear" class="btn calc-btn clear-btn">C</button>
+                        </div>
+                        <div class="col-xs-3">
+                            <button id="9" class="btn calc-btn">9</button>
+                            <button id="6" class="btn calc-btn">6</button>
+                            <button id="3" class="btn calc-btn">3</button>
+                            <button id="dot" class="btn calc-btn dot-btn"> . </button>
+                        </div>
+                        <div class="col-xs-3">
+                            <button id="divide" class="btn calc-btn">&divide;</button>
+                            <button id="times" class="btn calc-btn">&times;</button>
+                            <button id="minus" class="btn calc-btn">&minus;</button>
+                            <button id="plus" class="btn calc-btn">+</button>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 number-buttons">
+                        <button id="equal" class="btn calc-btn equal-btn">=</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script 
+            src="http://code.jquery.com/jquery-2.2.3.min.js"   
+            integrity="sha256-a23g1Nt4dtEYOj7bR+vTu7+T8VP13humZFBJNIYoEJo="   
+            crossorigin="anonymous">
+        </script>
+        <script src="js/bundle.js"></script>
+    </body>
+</html>

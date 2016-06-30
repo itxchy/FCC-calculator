@@ -1,0 +1,64 @@
+html {
+  font-size: 16px;
+}
+
+header {
+  margin-top: 3rem;
+}
+
+ .btn{
+  border: 0px solid transparent; /* this was 1px earlier */
+ }
+
+.btn:focus,.btn:active {
+   outline: none !important;
+}
+
+header {
+  text-align: center;
+}
+
+.calculator {
+  width: 18rem;
+  height: 31.5rem;
+  margin-top: 3rem;
+  border: 2px outset #EEE;
+  border-radius: 20px;
+  background: desaturate(#483C32, 44);
+}
+
+.display {
+  margin-top: 1rem;
+  padding: .2rem .6rem 0 0;
+  height: 3rem;
+  font-size: 2em;
+  text-align: right;
+  background-color: #DFD;
+  overflow: hidden;
+}
+
+.button-container {
+  margin-top: 1rem;
+}
+
+.calc-btn {
+  margin: .2rem .2rem .2rem -.6rem;
+  font-size: 3em;
+  border: 2px outset #EEE;
+}
+
+.clear-btn {
+  font-size: 3em;
+  padding-left: .52rem;
+  padding-right: .52rem;
+}
+
+.dot-btn {
+  padding-left: 1.2rem;
+  padding-right: 1.1rem;
+}
+
+.equal-btn {
+  margin-left: .35rem;
+  padding: 0 6.75rem;
+}
